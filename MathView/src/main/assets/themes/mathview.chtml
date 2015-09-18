@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                messageStyle: "none",
+                jax: ["input/TeX","output/HTML-CSS", "output/CommonHTML"],
+                extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "CHTML-preview.js"],
+                TeX: {
+                    extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+                }
+            });
+        </script>
+        <script type="text/javascript" src="file:///android_asset/MathJax/MathJax.js"></script>
+    </head>
+    <body>
+        {$formula}
+    </body>
+</html>
