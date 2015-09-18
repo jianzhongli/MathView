@@ -20,7 +20,6 @@ allprojects {
         maven { url 'https://dl.bintray.com/kexanie/maven' }
     }
 }
-
 ```
 
 2) Add `compile 'io.github.kexanie.library:MathView:0.0.1@aar'` into **dependencies** section of your **module** build.gradle file. For example:
@@ -31,7 +30,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.0.0'
     compile 'io.github.kexanie.library:MathView:0.0.1@aar'
 }
-
 ```
 
 ### 2. Setup from local .aar file
@@ -50,6 +48,17 @@ The behaviour of `MathView` is nearly the same as `TextView`, except that it wil
 ### Define `MathView` in your layout file
 For example:
 ```
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:auto="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
     <io.github.kexanie.library.MathView
         android:id="@+id/formula_one"
         android:layout_width="match_parent"
@@ -57,6 +66,8 @@ For example:
         auto:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\) and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"
         >
     </io.github.kexanie.library.MathView>
+
+</RelativeLayout>
 ```
 Please pay attention that you need to escape spacial characters like backslash, quotes and so on. (I am trying to fix the escaping problem.)
 
@@ -120,7 +131,8 @@ public class MathView extends WebView {
     public void setText(String text) {
         mText = text;
         chunk.set("formula", mText);
-        this.loadDataWithBaseURL(null, chunk.toString(), "text/html", "utf-8", "about:blank");
+        this.loadDataWithBaseURL(
+            null, chunk.toString(), "text/html", "utf-8", "about:blank");
     }
 
     public String getText() {
@@ -133,6 +145,8 @@ Check the code for more details.
 ## Tests
 
 Tests are located in `app` module of this project. The app can be run for manual testing as well.
+
+<img src="screenshot.png" width="250"> 
 
 ## Feedback
 
