@@ -1,6 +1,6 @@
 # MathView
 
-MathView is a third-party view library, which might help you display math formula on Android apps easier. Support Android version 4.0 (Ice Cream Sandwich) and newer.
+MathView is a third-party view library, which might help you display math formula on Android apps easier. Support Android version 4.1 (Jelly Bean) and newer.
 
 ## Setup
 
