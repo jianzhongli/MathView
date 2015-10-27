@@ -4,13 +4,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import io.github.kexanie.library.MathView;
 
 public class MainActivity extends AppCompatActivity {
+    MathView math_one;
+    MathView math_two;
+    String tex = "This come from string. You can insert inline formula: \\(\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}\\) or displayed formula: $$\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}$$";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        math_one = (MathView) findViewById(R.id.formula_one);
+        math_two = (MathView) findViewById(R.id.formula_two);
+
+        // This toast will print raw TeX string
+        Toast.makeText(this, math_one.getText(), Toast.LENGTH_LONG).show();
+        math_two.setText(tex);
     }
 
     @Override

@@ -3,6 +3,8 @@ package io.github.kexanie.library;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import com.x5.template.Chunk;
@@ -16,7 +18,16 @@ public class MathView extends WebView {
 
     public MathView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.getSettings().setJavaScriptEnabled(true);
+        getSettings().setJavaScriptEnabled(true);
+        getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+        setLongClickable(true);
+        setOnLongClickListener(new OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                return false; // to disable long click
+            }
+        });
+
         AndroidTemplates loader = new AndroidTemplates(context);
         chunk = new Theme(loader).makeChunk("mathview");
 

@@ -44,7 +44,7 @@ The behaviour of `MathView` is nearly the same as `TextView`, except that it wil
 For example:
 
 ```
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:auto="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -53,7 +53,13 @@ For example:
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="formula one: from xml attribute"/>
 
     <io.github.kexanie.library.MathView
         android:id="@+id/formula_one"
@@ -63,16 +69,27 @@ For example:
         >
     </io.github.kexanie.library.MathView>
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="formula two: from Java String"/>
+
+    <io.github.kexanie.library.MathView
+        android:id="@+id/formula_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    </io.github.kexanie.library.MathView>
+</LinearLayout>
 ```
 **Please pay attention that you need to escape spacial characters like backslash, quotes and so on.**
-
-(I am trying to fix the escaping problem.)
 
 ### Get an instance from your `Activity`
 ```
 public class MainActivity extends AppCompatActivity {
-    MathView mMathView;
+    MathView math_one;
+    MathView math_two;
+    String tex = "This come from string. You can insert inline formula: \\(\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}\\) or displayed formula: $$\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}$$";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,18 +101,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        mMathView = (MathView) findViewById(R.id.formula_one);
-        
-        // This toast will print raw TeX string
-        Toast.makeText(this, mMathView.getText(), Toast.LENGTH_LONG).show(); 
-        
-        return true;
-    }
+        math_one = (MathView) findViewById(R.id.formula_one);
+        math_two = (MathView) findViewById(R.id.formula_two);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        // This toast will print raw TeX string
+        Toast.makeText(this, math_one.getText(), Toast.LENGTH_LONG).show();
+        math_two.setText(tex);
     }
 }
 ```

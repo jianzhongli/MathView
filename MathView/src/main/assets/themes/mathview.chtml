@@ -4,7 +4,7 @@
         <script type="text/x-mathjax-config">
             MathJax.Hub.Config({
                 messageStyle: "none",
-                jax: ["input/TeX","output/HTML-CSS", "output/CommonHTML"],
+                jax: ["input/TeX", "output/HTML-CSS", "output/CommonHTML"],
                 extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "CHTML-preview.js"],
                 TeX: {
                     extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
@@ -12,6 +12,16 @@
             });
         </script>
         <script type="text/javascript" src="file:///android_asset/MathJax/MathJax.js"></script>
+        <style>
+            body {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+        </style>
     </head>
     <body>
         {$formula}
