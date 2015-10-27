@@ -106,6 +106,8 @@ public class MainActivity extends AppCompatActivity {
 
         // This toast will print raw TeX string
         Toast.makeText(this, math_one.getText(), Toast.LENGTH_LONG).show();
+
+        // This will set the second MathView's text
         math_two.setText(tex);
     }
 }
