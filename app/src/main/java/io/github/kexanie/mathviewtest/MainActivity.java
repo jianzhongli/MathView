@@ -11,7 +11,10 @@ import io.github.kexanie.library.MathView;
 public class MainActivity extends AppCompatActivity {
     MathView math_one;
     MathView math_two;
-    String tex = "This come from string. You can insert inline formula: \\(\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}\\) or displayed formula: $$\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}$$";
+    MathView font_test;
+    String tex = "This come from string. You can insert inline formula:" +
+            " \\(\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}\\) " +
+            "or displayed formula: $$\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}$$";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +28,22 @@ public class MainActivity extends AppCompatActivity {
 
         math_one = (MathView) findViewById(R.id.formula_one);
         math_two = (MathView) findViewById(R.id.formula_two);
+        font_test = (MathView) findViewById(R.id.font_test);
 
         // This toast will print raw TeX string
         Toast.makeText(this, math_one.getText(), Toast.LENGTH_LONG).show();
         math_two.setText(tex);
+        font_test.setText(
+                "\\(Greek letters: \\alpha, \\beta, …, \\omega, \\Gamma, \\Delta, …, \\Omega\\)" +
+                "\\(Superscipt and subscripts: x_i^2\\)" +
+                "\\(\\mathbf{Sums and integrals}: \\sum_1^n, \\sum_{i=0}^\\infty i^2, \\prod \\\\" +
+                        " \\int, \\bigcup, \\bigcap, \\iint\\)" +
+                "\\(\\mathbf{Fractions}: \\frac ab, \\frac{a+1}{b+1}, {a+1\\over b+1}\\)" +
+                        "\\(\\mathbf{Boldface}: \\mathbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\)" +
+                        "\\(\\mathtt{Typewriter font}: \\mathtt{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\)" +
+                        "\\(\\mathrm{Roman font}: \\mathrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\)" +
+                        "\\(\\mathcal{Calligraphic}: \\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\)" +
+                        "\\(\\mathfrak {Fraktur letters}: \\mathfrak {ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\)");
     }
 
     @Override

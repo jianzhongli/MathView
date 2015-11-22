@@ -5,7 +5,7 @@
             MathJax.Hub.Config({
                 messageStyle: "none",
                 jax: ["input/TeX", "output/HTML-CSS", "output/CommonHTML"],
-                extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "CHTML-preview.js"],
+                extensions: ["tex2jax.js","MathZoom.js", "CHTML-preview.js"],
                 TeX: {
                     extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
                 }
