@@ -10,56 +10,34 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <android.support.v4.widget.NestedScrollView
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:text="Formula one: from xml with MathJax"
+        android:textStyle="bold"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="formula one: from xml attribute"
-                android:gravity="center"/>
+    <io.github.kexanie.library.MathView
+        android:id="@+id/formula_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        auto:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\)
+        and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"
+        auto:engine="MathJax"
+        >
+    </io.github.kexanie.library.MathView>
 
-            <io.github.kexanie.library.MathView
-                android:id="@+id/formula_one"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                auto:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\)
-                and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"
-                >
-            </io.github.kexanie.library.MathView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Formula two: from Java String with KaTeX"
+        android:textStyle="bold"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="formula two: from Java String"
-                android:gravity="center_horizontal"/>
-
-            <io.github.kexanie.library.MathView
-                android:id="@+id/formula_two"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-            </io.github.kexanie.library.MathView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="MathJax basic tutorial and quick reference"/>
-
-            <io.github.kexanie.library.MathView
-                android:id="@+id/font_test"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                auto:engine="MathJax"
-                >
-            </io.github.kexanie.library.MathView>
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
-
+    <io.github.kexanie.library.MathView
+        android:id="@+id/formula_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        auto:engine="KaTeX"
+        >
+    </io.github.kexanie.library.MathView>
 
 </LinearLayout>
