@@ -16,7 +16,7 @@ There are two ways you can add `MathView` to your project in Android Studio:
 
 Add `compile 'io.github.kexanie.library:MathView:0.0.3'` into **dependencies** section of your **module** build.gradle file. For example:
 
-```
+```Groovy
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.0.0'
@@ -56,7 +56,7 @@ KaTeX is faster than MathJax on mobile environment, but MathJax supports more fe
 ### Define `MathView` in your layout file
 For example:
 
-```
+```xml
 <LinearLayout ...>
 
     <TextView
@@ -94,7 +94,7 @@ For example:
 ```
 
 ### Get an instance from your `Activity`
-```
+```Java
 public class MainActivity extends AppCompatActivity {
     MathView formula_one;
     MathView formula_two;
