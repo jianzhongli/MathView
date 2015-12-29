@@ -40,4 +40,18 @@
         >
     </io.github.kexanie.library.MathView>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Formula three: render MathML code with MathJax"
+        android:textStyle="bold"/>
+
+    <io.github.kexanie.library.MathView
+        android:id="@+id/formula_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        auto:engine="MathJax"
+        >
+    </io.github.kexanie.library.MathView>
+
 </LinearLayout>

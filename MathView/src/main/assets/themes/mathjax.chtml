@@ -2,16 +2,11 @@
 <html>
     <head>
         <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({
-                messageStyle: "none",
-                jax: ["input/TeX", "output/HTML-CSS", "output/CommonHTML"],
-                extensions: ["tex2jax.js","MathZoom.js", "CHTML-preview.js"],
-                TeX: {
-                    extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
-                }
-            });
+            MathJax.Hub.Config({messageStyle: 'none', tex2jax: {preview: 'none'}});
         </script>
-        <script type="text/javascript" src="file:///android_asset/MathJax/MathJax.js"></script>
+        <script type="text/javascript"
+            src="file:///android_asset/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
     </head>
     <body>
         {$formula}
