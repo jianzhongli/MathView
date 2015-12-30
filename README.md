@@ -1,5 +1,5 @@
 # MathView
-[ ![Download](https://api.bintray.com/packages/kexanie/maven/MathView/images/download.svg) ](https://bintray.com/kexanie/maven/MathView/_latestVersion) 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-MathView-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/2957) [![Download](https://api.bintray.com/packages/kexanie/maven/MathView/images/download.svg) ](https://bintray.com/kexanie/maven/MathView/_latestVersion) 
 
 `MathView` is a third-party view library, which might help you display math formula on Android apps easier. Two rendering engines available: [MathJax] and [KaTeX]. Support Android version 4.1 (Jelly Bean) and newer. 
 
