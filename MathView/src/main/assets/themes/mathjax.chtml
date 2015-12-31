@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="file:///android_asset/themes/style.css">
         <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({messageStyle: 'none', tex2jax: {preview: 'none'}});
+            MathJax.Hub.Config({
+                messageStyle: 'none',
+                tex2jax: {preview: 'none'}
+            });
         </script>
         <script type="text/javascript"
             src="file:///android_asset/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">

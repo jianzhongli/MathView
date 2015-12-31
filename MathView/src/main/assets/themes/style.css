@@ -1,0 +1,6 @@
+body {
+    margin: 0;
+    -webkit-touch-callout: none!important;
+    -webkit-user-select: none!important;
+    user-select: none!important;
+}
