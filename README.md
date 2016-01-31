@@ -51,7 +51,7 @@ The behaviour of `MathView` is nearly the same as `TextView`, except that it wil
 
 **About the engines**
 
-KaTeX is faster than MathJax on mobile environment, but MathJax supports more features and is much more beautiful. Choose whatever suits your needs.
+KaTeX is faster than MathJax on mobile environment, but MathJax supports more features and is much more beautiful. Choose whatever suits your needs. 
 
 ### Define `MathView` in your layout file
 For example:
@@ -118,6 +118,20 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **Noted that the method `MatView.getText()` will return the raw TeX code (Java `String`).**
+
+### Configuration
+
+I am not an expert in MathJax. Rather than providing a pre-configured version of MathJax, I choose to add another method `config()`(for MathJax only) to `MathView` in version `0.0.5`. You can tweak MathJax with more complicated configurations. For example, to enable auto linebreaking, you can call
+
+```java
+MathView.config(
+"MathJax.Hub.Config({\n"+
+            "  CommonHTML: { linebreaks: { automatic: true } },\n"+
+            "  \"HTML-CSS\": { linebreaks: { automatic: true } },\n"+
+            "         SVG: { linebreaks: { automatic: true } }\n"+
+            "});");
+```
+before `setText()`.
 
 ## How it works
 

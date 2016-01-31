@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -14,6 +15,7 @@ import com.x5.template.providers.AndroidTemplates;
 
 public class MathView extends WebView {
     private String mText;
+    private String mConfig;
     private int mEngine;
 
     public MathView(Context context, AttributeSet attrs) {
@@ -54,7 +56,9 @@ public class MathView extends WebView {
         Chunk chunk = getChunk();
 
         String TAG_FORMULA = "formula";
+        String TAG_CONFIG = "config";
         chunk.set(TAG_FORMULA, mText);
+        chunk.set(TAG_CONFIG, mConfig);
         this.loadDataWithBaseURL(null, chunk.toString(), "text/html", "utf-8", "about:blank");
     }
 
@@ -63,8 +67,30 @@ public class MathView extends WebView {
     }
 
     /**
+     * Tweak the configuration of MathJax.
+     * The `config` string is a call statement for MathJax.Hub.Config().
+     * For example, to enable auto line breaking, you can call:
+     * config.("MathJax.Hub.Config({
+     *      CommonHTML: { linebreaks: { automatic: true } },
+     *      "HTML-CSS": { linebreaks: { automatic: true } },
+     *      SVG: { linebreaks: { automatic: true } }
+     *  });");
+     *
+     * PLEASE PAY ATTENTION THAT THIS METHOD IS FOR MATHJAX ONLY.
+     * @param config
+     * @callbefore setText()
+     * @callafter setEngine()
+     */
+    public void config(String config) {
+        if (mEngine == Engine.MATHJAX) {
+            this.mConfig = config;
+        }
+    }
+
+    /**
      * Set the js engine used for rendering the formulas.
      * @param engine must be one of the constants in class Engine
+     * @callbefore setText()
      */
     public void setEngine(int engine) {
         switch (engine) {

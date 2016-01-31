@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
 
         formula_two = (MathView) findViewById(R.id.formula_two);
         formula_three = (MathView) findViewById(R.id.formula_three);
-
         formula_two.setText(tex);
         formula_three.setText(mathml);
     }

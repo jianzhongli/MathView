@@ -22,5 +22,7 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.1.1'
+//    compile 'io.github.kexanie.library:MathView:0.0.4'
+
     compile project(':MathView')
 }

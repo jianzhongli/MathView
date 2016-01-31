@@ -8,6 +8,9 @@
                 tex2jax: {preview: 'none'}
             });
         </script>
+        <script type="text/x-mathjax-config">
+            {$config}
+        </script>
         <script type="text/javascript"
             src="file:///android_asset/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
         </script>
