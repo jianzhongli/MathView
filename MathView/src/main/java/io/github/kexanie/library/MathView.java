@@ -76,10 +76,9 @@ public class MathView extends WebView {
      *      SVG: { linebreaks: { automatic: true } }
      *  });");
      *
+     * This method should be call BEFORE setText() and AFTER setEngine().
      * PLEASE PAY ATTENTION THAT THIS METHOD IS FOR MATHJAX ONLY.
-     * @param config
-     * @callbefore setText()
-     * @callafter setEngine()
+     * @param config 
      */
     public void config(String config) {
         if (mEngine == Engine.MATHJAX) {
@@ -90,7 +89,8 @@ public class MathView extends WebView {
     /**
      * Set the js engine used for rendering the formulas.
      * @param engine must be one of the constants in class Engine
-     * @callbefore setText()
+     *
+     * This method should be call BEFORE setText().
      */
     public void setEngine(int engine) {
         switch (engine) {
