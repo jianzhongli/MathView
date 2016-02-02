@@ -14,13 +14,13 @@ There are two ways you can add `MathView` to your project in Android Studio:
 
 ### 1. Setup from a remote Maven repository (jcenter)
 
-Add `compile 'io.github.kexanie.library:MathView:0.0.4'` into **dependencies** section of your **module** build.gradle file. For example:
+Add `compile 'io.github.kexanie.library:MathView:0.0.5'` into **dependencies** section of your **module** build.gradle file. For example:
 
 ```groovy
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.0.0'
-    compile 'io.github.kexanie.library:MathView:0.0.4'
+    compile 'io.github.kexanie.library:MathView:0.0.5'
 }
 ```
 
