@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -36,6 +37,12 @@ public class MathView extends WebView {
         } finally {
             mTypeArray.recycle();
         }
+    }
+
+    // disable touch event on MathView
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return false;
     }
 
     private Chunk getChunk() {
