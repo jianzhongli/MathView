@@ -85,6 +85,8 @@ For example:
         android:id="@+id/formula_two"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        auto:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\)
+        and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"
         auto:engine="KaTeX"
         >
     </io.github.kexanie.library.MathView>
