@@ -21,6 +21,14 @@ public class MathView extends WebView {
 
     public MathView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        
+        if (!isInEditMode()) {  // by-pass initializations in preview mode
+            init(context, attrs);
+        }
+        
+    }
+
+    private void init(Context context, AttributeSet attrs){
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
         setBackgroundColor(Color.TRANSPARENT);
@@ -38,7 +46,7 @@ public class MathView extends WebView {
             mTypeArray.recycle();
         }
     }
-
+    
     // disable touch event on MathView
     @Override
     public boolean onTouchEvent(MotionEvent event) {
