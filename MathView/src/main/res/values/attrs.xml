@@ -6,5 +6,7 @@
             <enum name="KaTeX" value="0"/>
             <enum name="MathJax" value="1"/>
         </attr>
+        <attr name="darkTextColor" format="boolean"/>
+        <attr name="disableTouchEvent" format="boolean"/>
     </declare-styleable>
 </resources>
