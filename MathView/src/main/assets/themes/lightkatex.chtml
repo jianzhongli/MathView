@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Auto-render test</title>
+        <link rel="stylesheet" type="text/css" href="file:///android_asset/katex/katex.min.css">
+        <link rel="stylesheet" type="text/css" href="file:///android_asset/themes/lightstyle.css">
+        <script type="text/javascript" src="file:///android_asset/katex/katex.min.js"></script>
+        <script type="text/javascript" src="file:///android_asset/katex/contrib/auto-render.min.js"></script>
+    </head>
+    <body>
+        {$formula}
+        <script>
+          renderMathInElement(
+              document.body
+          );
+        </script>
+    </body>
+</html>
