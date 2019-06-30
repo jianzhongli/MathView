@@ -49,4 +49,24 @@
         android:layout_height="wrap_content"
         auto:engine="MathJax" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Light text color"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000">
+
+        <io.github.kexanie.library.MathView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            auto:darkTextColor="false"
+            auto:engine="KaTeX"
+            auto:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\)
+        and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$" />
+    </FrameLayout>
+
 </LinearLayout>
