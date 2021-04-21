@@ -35,9 +35,8 @@ public class MathView extends WebView {
 
         try { // the order of execution of setEngine() and setText() matters
             setEngine(mTypeArray.getInteger(R.styleable.MathView_engine, 0));
-            setText(mTypeArray.getString(R.styleable.MathView_text));
-            setText(mTypeArray.getString(R.styleable.MathView_text));
             setTextColor(mTypeArray.getColor(R.styleable.MathView_textColor, Color.BLACK));
+            setText(mTypeArray.getString(R.styleable.MathView_text));
         } finally {
             mTypeArray.recycle();
         }
