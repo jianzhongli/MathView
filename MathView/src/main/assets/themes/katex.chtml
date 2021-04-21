@@ -9,7 +9,7 @@
         <script type="text/javascript" src="file:///android_asset/katex/contrib/auto-render.min.js"></script>
     </head>
     <body>
-        {$formula}
+        <font color="{$fontcolor}">{$formula}</font>
         <script>
           renderMathInElement(
               document.body
