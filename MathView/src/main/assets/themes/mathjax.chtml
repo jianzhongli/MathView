@@ -16,6 +16,6 @@
         </script>
     </head>
     <body>
-        {$formula}
+        <font color="{$fontcolor}">{$formula}</font>
     </body>
 </html>

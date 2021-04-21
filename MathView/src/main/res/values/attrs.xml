@@ -2,6 +2,7 @@
 <resources>
     <declare-styleable name="MathView">
         <attr name="text" format="string"/>
+        <attr name="textColor" format="reference|color" />
         <attr name="engine" format="enum">
             <enum name="KaTeX" value="0"/>
             <enum name="MathJax" value="1"/>
