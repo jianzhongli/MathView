@@ -10,6 +10,7 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
+import com.a3.apurv.phyCalc.R;
 import com.x5.template.Chunk;
 import com.x5.template.Theme;
 import com.x5.template.providers.AndroidTemplates;
@@ -17,6 +18,8 @@ import com.x5.template.providers.AndroidTemplates;
 public class MathView extends WebView {
     private String mText;
     private String mConfig;
+    private String fontColor;
+    private int mTextColor;
     private int mEngine;
 
     public MathView(Context context, AttributeSet attrs) {
@@ -34,6 +37,8 @@ public class MathView extends WebView {
         try { // the order of execution of setEngine() and setText() matters
             setEngine(mTypeArray.getInteger(R.styleable.MathView_engine, 0));
             setText(mTypeArray.getString(R.styleable.MathView_text));
+            setText(mTypeArray.getString(R.styleable.MathView_text));
+            setTextColor(mTypeArray.getColor(R.styleable.MathView_textColor, Color.BLACK));
         } finally {
             mTypeArray.recycle();
         }
@@ -51,8 +56,12 @@ public class MathView extends WebView {
         String template = TEMPLATE_KATEX;
         AndroidTemplates loader = new AndroidTemplates(getContext());
         switch (mEngine) {
-            case Engine.KATEX: template = TEMPLATE_KATEX; break;
-            case Engine.MATHJAX: template = TEMPLATE_MATHJAX; break;
+            case Engine.KATEX:
+                template = TEMPLATE_KATEX;
+                break;
+            case Engine.MATHJAX:
+                template = TEMPLATE_MATHJAX;
+                break;
         }
 
         return new Theme(loader).makeChunk(template);
@@ -64,13 +73,24 @@ public class MathView extends WebView {
 
         String TAG_FORMULA = "formula";
         String TAG_CONFIG = "config";
+        String TAG_COLOR = "fontcolor";
         chunk.set(TAG_FORMULA, mText);
         chunk.set(TAG_CONFIG, mConfig);
+        chunk.set(TAG_COLOR, fontColor);
         this.loadDataWithBaseURL(null, chunk.toString(), "text/html", "utf-8", "about:blank");
+    }
+
+    public void setTextColor(int textColor) {
+        this.mTextColor = textColor;
+        this.fontColor = String.format("#%06X", (0xFFFFFF & textColor));
     }
 
     public String getText() {
         return mText;
+    }
+
+    public int getTextColor() {
+        return mTextColor;
     }
 
     /**
@@ -78,14 +98,15 @@ public class MathView extends WebView {
      * The `config` string is a call statement for MathJax.Hub.Config().
      * For example, to enable auto line breaking, you can call:
      * config.("MathJax.Hub.Config({
-     *      CommonHTML: { linebreaks: { automatic: true } },
-     *      "HTML-CSS": { linebreaks: { automatic: true } },
-     *      SVG: { linebreaks: { automatic: true } }
-     *  });");
-     *
+     * CommonHTML: { linebreaks: { automatic: true } },
+     * "HTML-CSS": { linebreaks: { automatic: true } },
+     * SVG: { linebreaks: { automatic: true } }
+     * });");
+     * <p>
      * This method should be call BEFORE setText() and AFTER setEngine().
      * PLEASE PAY ATTENTION THAT THIS METHOD IS FOR MATHJAX ONLY.
-     * @param config 
+     *
+     * @param config
      */
     public void config(String config) {
         if (mEngine == Engine.MATHJAX) {
@@ -95,9 +116,10 @@ public class MathView extends WebView {
 
     /**
      * Set the js engine used for rendering the formulas.
-     * @param engine must be one of the constants in class Engine
      *
-     * This method should be call BEFORE setText().
+     * @param engine must be one of the constants in class Engine
+     *               <p>
+     *               This method should be call BEFORE setText().
      */
     public void setEngine(int engine) {
         switch (engine) {
@@ -109,7 +131,8 @@ public class MathView extends WebView {
                 mEngine = Engine.MATHJAX;
                 break;
             }
-            default: mEngine = Engine.KATEX;
+            default:
+                mEngine = Engine.KATEX;
         }
     }
 
